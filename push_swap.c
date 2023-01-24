@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 14:37:37 by apereira         ###   ########.fr       */
+/*   Updated: 2023/01/24 15:15:27 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	stack_a_init(char **argv, t_list *a, t_vars *var, int argc)
 	{
 		ft_printf("--------------------------\n");
 		ft_printf("argv is currently: %i\n", ft_atoi(argv[var->i]));
-		if (nbr_is_valid(a, argv[var->i], ft_atoi(argv[var->i]), var->i))
+		if (!nbr_is_valid(a, argv[var->i], ft_atoi(argv[var->i]), var->i))
 			return (0);
 		var->tmp = ft_calloc(1, sizeof(int));
 		*var->tmp = ft_atoi(argv[var->i]);
