@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:42:01 by apereira          #+#    #+#             */
-/*   Updated: 2022/11/09 19:49:19 by apereira         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:29:37 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	ft_atoi(const char *str)
 	res = 0;
 	i = 0;
 	posneg = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-			i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')

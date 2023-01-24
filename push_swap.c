@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 13:15:50 by apereira         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:37:37 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	vars_init(&var);
 	var.i = 1;
-	if (!stack_a_init(argv, a, &var))
+	if (!stack_a_init(argv, a, &var, argc))
 		return (0);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
@@ -41,13 +41,13 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-int	stack_a_init(char **argv, t_list *a, t_vars *var)
+int	stack_a_init(char **argv, t_list *a, t_vars *var, int argc)
 {
-	while (argv[var->i])
+	while (var->i < argc)
 	{
 		ft_printf("--------------------------\n");
 		ft_printf("argv is currently: %i\n", ft_atoi(argv[var->i]));
-		if (number_is_present(a, ft_atoi(argv[var->i])))
+		if (nbr_is_valid(a, argv[var->i], ft_atoi(argv[var->i]), var->i))
 			return (0);
 		var->tmp = ft_calloc(1, sizeof(int));
 		*var->tmp = ft_atoi(argv[var->i]);
