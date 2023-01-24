@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 12:22:58 by apereira         ###   ########.fr       */
+/*   Updated: 2023/01/24 13:15:50 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,26 @@ int	main(int argc, char **argv)
 	b = NULL;
 	vars_init(&var);
 	var.i = 1;
-	while (argv[var.i])
-	{
-		var.tmp = ft_calloc(1, sizeof(int));
-		*var.tmp = ft_atoi(argv[var.i]);
-		ft_lstadd_back(&a, ft_lstnew(var.tmp));
-		var.i++;
-	}
+	if (!stack_a_init(argv, a, &var))
+		return (0);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
-	ft_printf("Number of moves: %d\n\n", var.count);
+	ft_printf("\nNumber of moves: %d\n\n", var.count);
 	return (0);
+}
+
+int	stack_a_init(char **argv, t_list *a, t_vars *var)
+{
+	while (argv[var->i])
+	{
+		ft_printf("--------------------------\n");
+		ft_printf("argv is currently: %i\n", ft_atoi(argv[var->i]));
+		if (number_is_present(a, ft_atoi(argv[var->i])))
+			return (0);
+		var->tmp = ft_calloc(1, sizeof(int));
+		*var->tmp = ft_atoi(argv[var->i]);
+		ft_lstadd_back(&a, ft_lstnew(var->tmp));
+		var->i++;
+	}
+	return (1);
 }

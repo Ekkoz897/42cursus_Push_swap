@@ -6,7 +6,7 @@ RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = push_swap.c push_utils.c
+SRC = push_swap.c push_utils.c input_check.c
 
 OBJ = $(SRC: .c = .o)
 
@@ -19,7 +19,7 @@ $(NAME):
 	@$(CC) $(CFLAGS) $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
 run:
-	@./push_swap 3 1 2 4 5 6
+	@./push_swap 1 2 3 5 4 6 
 
 clean:
 	@find . -type f \( -name "*.o" \) -delete

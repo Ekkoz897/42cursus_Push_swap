@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 13:07:14 by apereira         ###   ########.fr       */
+/*   Created: 2023/01/24 13:03:28 by apereira          #+#    #+#             */
+/*   Updated: 2023/01/24 13:17:40 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-
-typedef struct s_vars
+int	number_is_present(t_list *a, int i)
 {
-	int				count;
-	int				i;
-	int				*tmp;
-}t_vars;
-
-void	vars_init(t_vars *vars);
-int		number_is_present(t_list *a, int i);
-int		stack_a_init(char **argv, t_list *a, t_vars *var);
-
-#endif
+	while (a)
+	{
+		if (*a->content == i)
+		{
+			ft_printf("\nError\n%i is present more than once", i);
+			ft_printf(" in the stack of numbers you provided\n\n");
+			return (1);
+		}
+		ft_printf("Comparing %i to: %i\n", i, *a->content);
+		a = a->next;
+	}
+	return (0);
+}
