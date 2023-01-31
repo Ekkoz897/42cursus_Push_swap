@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 14:35:59 by apereira         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:59:28 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,16 @@ typedef struct s_vars
 	int				*tmp;
 }t_vars;
 
-void	vars_init(t_vars *vars);
 int		nbr_is_valid(t_list *a, char *str, int nbr, int index);
-int		stack_a_init(char **argv, t_list *a, t_vars *var, int argc);
+void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc);
+
+// Movement Functions
+void	sa(t_list **a, int flag);
+void	sb(t_list **b, int flag);
+void	ss(t_list **a, t_list **b);
+
+// Utility Functions
+void	vars_init(t_vars *vars);
+void	clear_stacks(t_list **a, t_list **b);
 
 #endif
