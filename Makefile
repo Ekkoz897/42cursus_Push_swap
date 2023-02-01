@@ -6,7 +6,8 @@ RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = push_swap.c push_utils.c movements.c
+SRC = push_swap.c push_utils.c movement_files/movements.c movement_files/movements2.c \
+		movement_files/movements3.c
 
 OBJ = $(SRC: .c = .o)
 

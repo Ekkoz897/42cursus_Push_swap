@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 13:16:56 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:42:05 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 typedef struct s_vars
 {
-	int				count;
 	int				i;
 	int				*tmp;
 }t_vars;
@@ -31,10 +30,21 @@ void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc);
 void	sa(t_list **a, int flag);
 void	sb(t_list **b, int flag);
 void	ss(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
+void	ra(t_list **a, int flag);
+void	rb(t_list **b, int flag);
+void	rr(t_list **a, t_list **b);
+void	rra(t_list **a, int flag);
+void	rrb(t_list **b, int flag);
+void	rrr(t_list **b, t_list **a);
 
 // Utility Functions
 void	vars_init(t_vars *vars);
 void	clear_stacks(t_list **a, t_list **b);
 void	go_back(t_list **a);
+int		are_already_in_order(t_list *a);
 
+// Algo for 3 or less
+void	three_or_less(t_list **a); 
 #endif

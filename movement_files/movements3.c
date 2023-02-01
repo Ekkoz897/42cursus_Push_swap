@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_utils.c                                       :+:      :+:    :+:   */
+/*   movements3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/24 12:01:09 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 14:47:34 by apereira         ###   ########.fr       */
+/*   Created: 2023/02/01 15:26:58 by apereira          #+#    #+#             */
+/*   Updated: 2023/02/01 15:42:20 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	vars_init(t_vars *vars)
+void	rrr(t_list **b, t_list **a)
 {
-	vars->i = 0;
-	vars->tmp = NULL;
+	rra(a, 1);
+	rrb(b, 1);
+	ft_printf("rrr");
 }
 
-void	clear_stacks(t_list **a, t_list **b)
+int	are_already_in_order(t_list *a)
 {
-	if (a)
-		ft_lstclear(a, free);
-	if (b)
-		ft_lstclear(b, free);
+	while (a->next)
+	{
+		if (a->content > a->next->content)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
+void	three_or_less(t_list **a)
+{
+	
 }

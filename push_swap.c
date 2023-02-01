@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 13:45:52 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:43:00 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,30 @@ int	main(int argc, char **argv)
 		return (0);
 	a = NULL;
 	b = NULL;
-	if (b)
-		ft_printf(" ");
 	vars_init(&var);
 	var.i = 1;
 	stack_a_init(argv, &a, &var, argc);
-	sa(&a, 0);
-	a = a;
 	while (a)
 	{
-		ft_printf("---%i---\n", *(int *)a->content);
+		ft_printf("---%i---   ", *(int *)a->content);
+		// if (b->next)
+		// 	ft_printf("---%i---", *(int *)b->content);
 		if (!a->next)
 			break ;
 		a = a->next;
+		// if (b->next)
+		// 	b = b->next;
 	}
+	if (are_already_in_order(a))
+	{
+		clear_stacks(&a, &b);
+		return (0);
+	}
+	if (argc <= 3)
+		three_or_less(&a);
+	go_back(&b);
 	go_back(&a);
 	clear_stacks(&a, &b);
-	ft_printf("\n--------------------------\n");
-	ft_printf("\nNumber of moves: %d\n\n", var.count);
 	return (0);
 }
 
@@ -61,7 +67,6 @@ void	go_back(t_list **lst)
 {
 	while ((*lst))
 	{
-		ft_printf("%i\n", *(int *)(*lst)->content);
 		*lst = (*lst)->prev;
 	}
 }
