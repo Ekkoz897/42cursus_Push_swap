@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/31 17:59:28 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:16:56 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	ss(t_list **a, t_list **b);
 // Utility Functions
 void	vars_init(t_vars *vars);
 void	clear_stacks(t_list **a, t_list **b);
+void	go_back(t_list **a);
 
 #endif

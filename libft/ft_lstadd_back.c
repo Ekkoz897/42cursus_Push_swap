@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:06:44 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 11:37:18 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:39:01 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	else
 	{
-		ft_lstlast(*lst)->next = new;
 		new->prev = ft_lstlast(*lst);
+		ft_lstlast(*lst)->next = new;
 	}
 	new->next = NULL;
 }

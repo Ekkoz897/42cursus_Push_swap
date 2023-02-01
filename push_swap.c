@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/31 18:06:23 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:45:52 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 	t_vars	var;
-	t_list	*delete_later;
 
 	if (argc < 2)
 		return (0);
@@ -43,27 +42,29 @@ int	main(int argc, char **argv)
 	var.i = 1;
 	stack_a_init(argv, &a, &var, argc);
 	sa(&a, 0);
-	delete_later = a;
-	while (delete_later)
+	a = a;
+	while (a)
 	{
-		ft_printf("---%i---\n", *(int *)delete_later->content);
-		delete_later = delete_later->next;
+		ft_printf("---%i---\n", *(int *)a->content);
+		if (!a->next)
+			break ;
+		a = a->next;
 	}
+	go_back(&a);
 	clear_stacks(&a, &b);
 	ft_printf("\n--------------------------\n");
 	ft_printf("\nNumber of moves: %d\n\n", var.count);
 	return (0);
 }
 
-// t_list	*go_back(t_list *a)
-// {
-// 	while (a)
-// 	{
-// 		printf("---%i---\n", *(int *)a->content);
-// 		a = a->prev;
-// 	}
-// 	return (a);
-// }
+void	go_back(t_list **lst)
+{
+	while ((*lst))
+	{
+		ft_printf("%i\n", *(int *)(*lst)->content);
+		*lst = (*lst)->prev;
+	}
+}
 
 void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 {

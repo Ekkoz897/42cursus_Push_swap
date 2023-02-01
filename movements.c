@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:03:28 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/31 17:57:24 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:36:47 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	sa(t_list **a, int flag)
 
 	temp = (*a)->next;
 	(*a)->next = temp->next;
-	(*a)->prev = temp->prev;
+	(*a)->prev = temp;
 	temp->next = *a;
-	temp->prev = (*a)->prev;
+	temp->prev = NULL;
+	(*a)->next->prev = *a;
 	*a = (*a)->prev;
 	if (flag == 0)
 		ft_printf("sa\n");
