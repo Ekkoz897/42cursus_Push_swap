@@ -6,14 +6,15 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:03:28 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 18:31:15 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:36:48 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /**
- * The function takes a pointer to a pointer to a list, and a flag. It swaps the first two elements of
+ * The function takes a pointer to a pointer to a list, and a flag.
+ * It swaps the first two elements of
  * the list, and if the flag is 0, it prints "sa" to the standard output
  * 
  * @param a the list

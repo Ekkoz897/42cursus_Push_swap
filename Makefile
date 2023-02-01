@@ -30,5 +30,10 @@ fclean: clean
 
 re: fclean all
 
+git:
+	git add .
+	git commit
+	git push
+
 valgrind:	all
 	valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all ./push_swap 2 1 3 5 4 6 
