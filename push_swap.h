@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 15:42:05 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:55:35 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	go_back(t_list **a);
 int		are_already_in_order(t_list *a);
 
 // Algo for 3 or less
-void	three_or_less(t_list **a); 
+void	three_or_less(t_list **a);
 #endif

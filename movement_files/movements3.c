@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:26:58 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 15:42:20 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:34:12 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ void	rrr(t_list **b, t_list **a)
 
 int	are_already_in_order(t_list *a)
 {
+	go_back(&a);
 	while (a->next)
 	{
-		if (a->content > a->next->content)
+		if (*(int *)a->content > *(int *)a->next->content)
 			return (0);
 		a = a->next;
 	}
@@ -32,5 +33,23 @@ int	are_already_in_order(t_list *a)
 
 void	three_or_less(t_list **a)
 {
-	
+	if (*(int *)(*a)->content < *(int *)(*a)->next->content)
+	{
+		rra(a, 0);
+		if (are_already_in_order(*a))
+			return ;
+		sa(a, 0);
+	}
+	if (are_already_in_order(*a))
+		return ;
+	if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+	{
+		ra(a, 0);
+		if (are_already_in_order(*a))
+			return ;
+		sa(a, 0);
+		if (are_already_in_order(*a))
+			return ;
+		ra(a, 0);
+	}
 }
