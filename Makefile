@@ -30,7 +30,7 @@ fclean: clean
 
 re: fclean all
 
-git:
+git:	$(SRC)
 	git add .
 	git commit
 	git push
