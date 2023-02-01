@@ -6,14 +6,15 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 14:36:52 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 18:30:32 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:34:46 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /**
- * It takes a pointer to a pointer to a list, and a flag, and rotates the list to the right
+ * It takes a pointer to a pointer to a list, and a flag, and rotates 
+ * the list to the right
  * 
  * @param a the address of the pointer to the first element of the list
  * @param flag 0 = print the command, 1 = don't print the command
@@ -28,7 +29,8 @@ void	ra(t_list **a, int flag)
 }
 
 /**
- * It takes a pointer to a pointer to a linked list, and rotates the list to the right
+ * It takes a pointer to a pointer to a linked list, and rotates the 
+ * list to the right
  * 
  * @param b the list to be rotated
  * @param flag 0 = print, 1 = don't print
