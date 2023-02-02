@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 18:49:47 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/02 12:19:11 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 //
 	// while (a)
 	// {
-	// 	printf("%i\n", *(int *)a->content);
+	// 	printf("%i\n", *a->content);
 	// 	a = a->next;
 	// }
 //
@@ -49,9 +49,9 @@ int	main(int argc, char **argv)
 		three_or_less(&a);
 	while (a->content)
 	{
-		ft_printf("---%i---   \n", *(int *)a->content);
+		ft_printf("---%i---   \n", *a->content);
 		// if (b->content)
-		// 	ft_printf("---%i---", *(int *)b->content);
+		// 	ft_printf("---%i---", *b->content);
 		if (!a->next)
 			break ;
 		a = a->next;
