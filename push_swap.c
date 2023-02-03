@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/02 12:19:11 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:12:18 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,10 @@ int	main(int argc, char **argv)
 	}
 	if (argc <= 4)
 		three_or_less(&a);
-	else if (argc <= 6)
-		five_or_less(&a, &b);
+	// else if (argc <= 6)
+	// 	five_or_less(&a, &b);
 	else
 		big_stack(&a, &b, var);
-	while (a->content)
 	print_stacks(a, b, argc);
 	clear_stacks(&a, &b);
 	return (0);

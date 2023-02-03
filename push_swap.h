@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 15:55:35 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:04:33 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		nbr_is_valid(t_list *a, char *str, int nbr, int index);
 void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc);
 
 // Movement Functions
+
 void	sa(t_list **a, int flag);
 void	sb(t_list **b, int flag);
 void	ss(t_list **a, t_list **b);
@@ -40,11 +41,17 @@ void	rrb(t_list **b, int flag);
 void	rrr(t_list **b, t_list **a);
 
 // Utility Functions
+
 void	vars_init(t_vars *vars);
+int		get_a_size(t_list *a);
 void	clear_stacks(t_list **a, t_list **b);
 void	go_back(t_list **a);
 int		are_already_in_order(t_list *a);
 
-// Algo for 3 or less
+// Sorting Functions
+
 void	three_or_less(t_list **a);
+void	five_or_less(t_list **a, t_list **b);
+void	big_stack(t_list **a, t_list **b, t_vars vars);
+
 #endif

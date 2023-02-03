@@ -1,3 +1,18 @@
+#	3 numbers -> 2 or 3 moves
+#	5 numbers -> <12 moves
+#	100 numbers:
+#		<700 moves = 5pts
+#		<900 numbers = 4pts
+#		<1,100 numbers = 3pts
+#		<1,300 numbers = 2pts
+#		<1,500 numbers = 1pts
+#	500 numbers:
+#		<5,500 moves = 5pts
+#		<7,000 moves = 4pts
+#		<8,500 moves = 3pts
+#		<10,000 moves = 2pts
+#		<11,500 moves = 1pts
+
 NAME = push_swap
 
 CC = gcc

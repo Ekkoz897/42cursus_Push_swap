@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:41:50 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 10:15:57 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/03 12:00:18 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void		ft_putnbr_fd(int n, int fd);
 typedef struct s_list
 {
 	int				*content;
+	int				index;
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
@@ -99,7 +100,7 @@ t_list		*ft_lstlast(t_list *lst);
  * @param lst a pointer to a pointer to a linked list
  * @param new the new element to add to the list
  */
-void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstadd_back(t_list **lst, t_list *newx);
 /**
  * It calls the function on the content of the linked list
  * 
@@ -125,17 +126,5 @@ void		ft_lstclear(t_list **lst, void (*del)(void*));
  * @param f a function that takes a void pointer and returns nothing
  */
 void		ft_lstiter(t_list *lst, void (*f)(void *));
-/**
- * It takes a list, applies a function to each element of the list, 
- * and returns a new list with the
- * results of the function
- * 
- * @param lst The list to iterate over.
- * @param f a function that takes a void pointer and returns a void pointer
- * @param del a function that frees the memory of the content of a link.
- * 
- * @return A pointer to the new list.
- */
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
