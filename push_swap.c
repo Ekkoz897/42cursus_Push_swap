@@ -26,6 +26,25 @@
 // ft_printf("%i", *(*a)->content);
 //
 
+void	print_stacks(t_list *a, t_list *b, int argc)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc || b)
+	{
+		if (a->content)
+			ft_printf("a: %i  ", *a->content);
+		if (a->next)
+			a = a->next;
+		// if (b->content)
+		// 	ft_printf("b: %i  \n", *b->content);
+		// if (b->next)
+		// 	b = b->next;
+		i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -44,20 +63,14 @@ int	main(int argc, char **argv)
 		clear_stacks(&a, &b);
 		return (0);
 	}
-	go_back(&a);
 	if (argc <= 4)
 		three_or_less(&a);
+	else if (argc <= 6)
+		five_or_less(&a, &b);
+	else
+		big_stack(&a, &b, var);
 	while (a->content)
-	{
-		ft_printf("---%i---   \n", *a->content);
-		// if (b->content)
-		// 	ft_printf("---%i---", *b->content);
-		if (!a->next)
-			break ;
-		a = a->next;
-		// if (b->next)
-		// 	b = b->next;
-	}
+	print_stacks(a, b, argc);
 	clear_stacks(&a, &b);
 	return (0);
 }
