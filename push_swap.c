@@ -6,43 +6,26 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/03 12:12:18 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:21:29 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Loop to print all elements of a list
-//
-	// while (a)
-	// {
-	// 	printf("%i\n", *a->content);
-	// 	a = a->next;
-	// }
-//
-
-// To print an element of the list
-//
-// ft_printf("%i", *(*a)->content);
-//
-
-void	print_stacks(t_list *a, t_list *b, int argc)
+void	print_stacks(t_list *a, int argc)
 {
 	int	i;
 
 	i = 1;
-	while (i < argc || b)
+	while (i < argc)
 	{
 		if (a->content)
 			ft_printf("a: %i  ", *a->content);
 		if (a->next)
 			a = a->next;
-		// if (b->content)
-		// 	ft_printf("b: %i  \n", *b->content);
-		// if (b->next)
-		// 	b = b->next;
 		i++;
 	}
+	ft_printf("\n");
 }
 
 int	main(int argc, char **argv)
@@ -65,11 +48,11 @@ int	main(int argc, char **argv)
 	}
 	if (argc <= 4)
 		three_or_less(&a);
-	// else if (argc <= 6)
-	// 	five_or_less(&a, &b);
-	else
-		big_stack(&a, &b, var);
-	print_stacks(a, b, argc);
+	else if (argc <= 6)
+		five_or_less(&a, &b);
+	// else
+	// 	big_stack(&a, &b, var);
+	print_stacks(a, argc);
 	clear_stacks(&a, &b);
 	return (0);
 }

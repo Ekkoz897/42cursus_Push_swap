@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/03 12:04:33 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:21:14 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ void	rrb(t_list **b, int flag);
 void	rrr(t_list **b, t_list **a);
 
 // Utility Functions
-
+void	print_stacks(t_list *a, int argc);
 void	vars_init(t_vars *vars);
-int		get_a_size(t_list *a);
 void	clear_stacks(t_list **a, t_list **b);
 void	go_back(t_list **a);
 int		are_already_in_order(t_list *a);

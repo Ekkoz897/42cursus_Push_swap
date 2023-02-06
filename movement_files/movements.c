@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:03:28 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 18:36:48 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:10:11 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ void	sb(t_list **b, int flag)
 
 	temp = (*b)->next;
 	(*b)->next = temp->next;
-	(*b)->prev = temp->prev;
+	(*b)->prev = temp;
 	temp->next = *b;
-	temp->prev = (*b)->prev;
+	temp->prev = NULL;
+	(*b)->next->prev = *b;
 	*b = (*b)->prev;
 	if (flag == 0)
 		ft_printf("sb\n");
@@ -65,15 +66,15 @@ void	ss(t_list **a, t_list **b)
 
 void	pa(t_list **a, t_list **b)
 {
-	if (b)
-	{
-		go_back(a);
-		go_back(b);
-		(*b)->next->prev = NULL;
-		(*a)->prev = *b;
-		(*b)->next = *a;
-		(*b)->prev = NULL;
-	}
+	t_list	*temp;
+
+	temp = *b;
+	if (!temp)
+		return ;
+	*b = temp->next;
+	temp->next = *a;
+	temp->prev = NULL;
+	*a = temp;
 	ft_printf("pa\n");
 }
 
@@ -82,11 +83,11 @@ void	pb(t_list **a, t_list **b)
 	t_list	*temp;
 
 	temp = *a;
-	if (a)
-	{
-		*a = (*a)->next;
-		(*a)->prev = NULL;
-		ft_lstadd_front(b, temp);
-	}
+	if (!temp)
+		return ;
+	*a = temp->next;
+	temp->next = *b;
+	temp->prev = NULL;
+	*b = temp;
 	ft_printf("pb\n");
 }

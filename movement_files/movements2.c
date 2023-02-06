@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 14:36:52 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/01 18:34:46 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:19:12 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@
  */
 void	ra(t_list **a, int flag)
 {
-	(*a)->next->prev = NULL;
-	ft_lstadd_back(a, *a);
+	t_list	*temp;
+
+	temp = *a;
+	*a = (*a)->next;
+	(*a)->prev = NULL;
+	ft_lstadd_back(a, temp);
 	if (flag == 0)
 		ft_printf("ra\n");
 	go_back(a);
@@ -37,10 +41,14 @@ void	ra(t_list **a, int flag)
  */
 void	rb(t_list **b, int flag)
 {
-	(*b)->next->prev = NULL;
-	ft_lstadd_back(b, *b);
+	t_list	*temp;
+
+	temp = *b;
+	*b = (*b)->next;
+	(*b)->prev = NULL;
+	ft_lstadd_back(b, temp);
 	if (flag == 0)
-		ft_printf("rb\n");
+		ft_printf("ra\n");
 	go_back(b);
 }
 
@@ -62,10 +70,20 @@ void	rr(t_list **a, t_list **b)
 void	rra(t_list **a, int flag)
 {
 	t_list	*temp;
+	t_list	*temp2;
 
-	temp = ft_lstlast(*a)->prev;
-	ft_lstadd_front(a, ft_lstlast(*a));
-	temp->next = NULL;
+	if ((*a)->next == NULL)
+		return ;
+	temp2 = *a;
+	while (temp2->next->next != NULL)
+	{
+		temp2 = temp2->next;
+	}
+	temp = temp2->next;
+	temp->next = *a;
+	temp->prev = NULL;
+	*a = temp;
+	temp2->next = NULL;
 	if (flag == 0)
 		ft_printf("rra\n");
 	go_back(a);
@@ -79,9 +97,14 @@ void	rra(t_list **a, int flag)
  */
 void	rrb(t_list **b, int flag)
 {
+	t_list	*temp;
+
+	if ((*b)->next == NULL)
+		return ;
+	temp = ft_lstlast(*b)->prev;
 	ft_lstadd_front(b, ft_lstlast(*b));
-	ft_lstlast(*b)->next = NULL;
+	temp->next = NULL;
 	if (flag == 0)
-		ft_printf("rrb\n");
+		ft_printf("rra\n");
 	go_back(b);
 }

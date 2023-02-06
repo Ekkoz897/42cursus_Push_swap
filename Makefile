@@ -35,7 +35,7 @@ $(NAME): $(SRC)
 	@$(CC) $(CFLAGS) $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
 run: all
-	@./push_swap 2 1 3 5 4 6 
+	./push_swap 2 1 3 5 4
 
 clean:
 	@find . -type f \( -name "*.o" \) -delete
@@ -46,7 +46,7 @@ fclean: clean
 re: fclean all
 
 valgrind:	all
-	valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all ./push_swap 2 1 3
+	valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all ./push_swap 2 1 3 4 5
 
 git:	$(SRC)
 	@git add .
