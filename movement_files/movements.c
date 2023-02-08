@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:03:28 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/06 15:10:11 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:26:19 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,13 @@ void	sa(t_list **a, int flag)
  */
 void	sb(t_list **b, int flag)
 {
-	t_list	*temp;
+	int	temp;
 
-	temp = (*b)->next;
-	(*b)->next = temp->next;
-	(*b)->prev = temp;
-	temp->next = *b;
-	temp->prev = NULL;
-	(*b)->next->prev = *b;
-	*b = (*b)->prev;
+	if (b == NULL || (*b)->next == NULL)
+		return ;
+	temp = *(*b)->next->content;
+	*(*b)->next->content = *(*b)->content;
+	*(*b)->content = temp;
 	if (flag == 0)
 		ft_printf("sb\n");
 }
@@ -74,6 +72,7 @@ void	pa(t_list **a, t_list **b)
 	*b = temp->next;
 	temp->next = *a;
 	temp->prev = NULL;
+	(*a)->prev = temp;
 	*a = temp;
 	ft_printf("pa\n");
 }
@@ -88,6 +87,8 @@ void	pb(t_list **a, t_list **b)
 	*a = temp->next;
 	temp->next = *b;
 	temp->prev = NULL;
+	if (*b)
+		(*b)->prev = temp;
 	*b = temp;
 	ft_printf("pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:26:58 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/06 15:14:20 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:44:09 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	rrr(t_list **b, t_list **a)
 
 int	are_already_in_order(t_list *a)
 {
-	go_back(&a);
 	while (a->next)
 	{
 		if (*a->content > *a->next->content)

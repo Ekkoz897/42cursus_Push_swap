@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/06 16:21:29 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:05:58 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@ void	print_stacks(t_list *a, int argc)
 	int	i;
 
 	i = 1;
-	while (i < argc)
+	if (!argc)
+		return ;
+	while (a->next)
 	{
 		if (a->content)
 			ft_printf("a: %i  ", *a->content);
-		if (a->next)
-			a = a->next;
+		a = a->next;
 		i++;
 	}
+	ft_printf("a: %i  ", *a->content);
 	ft_printf("\n");
 }
 
@@ -61,8 +63,8 @@ void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 {
 	while (var->i < argc)
 	{
-		ft_printf("--------------------------\n");
-		ft_printf("argv is currently: %i\n\n", ft_atoi(argv[var->i]));
+		// ft_printf("--------------------------\n");
+		// ft_printf("argv is currently: %i\n\n", ft_atoi(argv[var->i]));
 		if (!nbr_is_valid(*a, argv[var->i], ft_atoi(argv[var->i]), var->i))
 		{
 			clear_stacks(a, a);
@@ -102,7 +104,6 @@ int	nbr_is_valid(t_list *a, char *str, int nbr, int index)
 			ft_printf("\nError\n%i is present more than once", nbr);
 			return (0);
 		}
-		ft_printf("Comparing %i to: %i\n", nbr, *a->content);
 		a = a->next;
 	}
 	return (1);
