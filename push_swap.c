@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/08 13:05:58 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:45:25 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 {
 	while (var->i < argc)
 	{
-		// ft_printf("--------------------------\n");
-		// ft_printf("argv is currently: %i\n\n", ft_atoi(argv[var->i]));
 		if (!nbr_is_valid(*a, argv[var->i], ft_atoi(argv[var->i]), var->i))
 		{
 			clear_stacks(a, a);
@@ -77,9 +75,6 @@ void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 	}
 }
 
-//
-// To avoid 25 lines, just delete the line 95 ft_printf
-//
 int	nbr_is_valid(t_list *a, char *str, int nbr, int index)
 {
 	if ((str[0] == '-' && str - "-2147483648" > 0 && ft_strlen(str) >= 11)
