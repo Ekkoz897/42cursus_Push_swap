@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:51:18 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/08 18:43:23 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:43:57 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	three_or_less(t_list **a)
 {
+	if (*(*a)->content > *(*a)->next->content
+		&& *(*a)->content < *(*a)->next->next->content)
+		sa(a, 0);
 	if (are_already_in_order(*a))
 		return ;
 	if (*(*a)->content < *(*a)->next->content)
@@ -37,7 +40,22 @@ void	three_or_less(t_list **a)
 	}
 }
 
-void	push_highest_numbers(t_list	**a, t_list **b)
+void	push_highest_numbers(t_list	**a, t_list **b, int bigpos)
+{
+	if (bigpos == 3)
+	{
+		rra(a, 0);
+		rra(a, 0);
+	}
+	else if (bigpos == 4)
+		rra(a, 0);
+	else
+		while (bigpos-- > 0)
+			ra(a, 0);
+	pb(a, b);
+}
+
+void	find_highest_numbers(t_list **a, t_list **b)
 {
 	int		bigpos;
 	t_list	*temp;
@@ -45,30 +63,28 @@ void	push_highest_numbers(t_list	**a, t_list **b)
 	int		i;
 
 	bigpos = 0;
-	temp = *a;
+	temp = (*a)->next;
 	nbr = *(*a)->content;
-	i = 0;
+	i = 1;
 	while (temp->content)
 	{
+		if (!temp->next)
+			break ;
 		if (nbr < *temp->content)
 		{
 			nbr = *temp->content;
 			bigpos = i;
 		}
 		i++;
-		if (!temp->next)
-			break ;
 		temp = temp->next;
 	}
-	while (bigpos-- > 0)
-		ra(a, 0);
-	pb(a, b);
+	push_highest_numbers(a, b, bigpos);
 }
 
 void	five_or_less(t_list **a, t_list **b)
 {
-	push_highest_numbers(a, b);
-	push_highest_numbers(a, b);
+	find_highest_numbers(a, b);
+	find_highest_numbers(a, b);
 	three_or_less(a);
 	if (*(*b)->content > *(*b)->next->content)
 		sb(b, 0);

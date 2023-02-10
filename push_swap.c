@@ -6,12 +6,13 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/08 18:45:25 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:46:24 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Function to print stacks ( will delete later)
 void	print_stacks(t_list *a, int argc)
 {
 	int	i;
@@ -54,7 +55,6 @@ int	main(int argc, char **argv)
 		five_or_less(&a, &b);
 	// else
 	// 	big_stack(&a, &b, var);
-	print_stacks(a, argc);
 	clear_stacks(&a, &b);
 	return (0);
 }
