@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/10 12:43:39 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:25:17 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	rrb(t_list **b, int flag);
 void	rrr(t_list **b, t_list **a);
 
 // Utility Functions
-void	print_stacks(t_list *a, int argc);
+void	print_stacks(t_list *a, char c);
 void	vars_init(t_vars *vars);
 void	clear_stacks(t_list **a, t_list **b);
 void	go_back(t_list **a);
@@ -58,5 +58,6 @@ void	push_highest_numbers(t_list	**a, t_list **b, int bigpos);
 
 // Over 5 numbers
 void	big_stack(t_list **a, t_list **b, t_vars vars);
+void 	merge_sort(t_list **a, t_list **b, int size);
 
 #endif

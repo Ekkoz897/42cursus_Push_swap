@@ -6,29 +6,69 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/10 12:46:24 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:44:03 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Function to print stacks ( will delete later)
-void	print_stacks(t_list *a, int argc)
+void	print_stacks(t_list *a, char c)
 {
 	int	i;
 
 	i = 1;
-	if (!argc)
-		return ;
 	while (a->next)
 	{
-		if (a->content)
+		if (c == 'a')
 			ft_printf("a: %i  ", *a->content);
+		if (c == 'b')
+			ft_printf("b: %i  ", *a->content);
 		a = a->next;
 		i++;
 	}
-	ft_printf("a: %i  ", *a->content);
+	if (c == 'a')
+		ft_printf("a: %i  ", *a->content);
+	if (c == 'b')
+		ft_printf("b: %i  ", *a->content);
 	ft_printf("\n");
+}
+
+int	partition(t_list **stack_a, t_list **stack_b, int size)
+{
+	int	pivot;
+	int	i;
+	int	j;
+
+	pivot = *(*stack_a)->next->content;
+	i = 1;
+	j = size - 1;
+	while (i < j && (*stack_a)->next)
+	{
+		ft_printf("a->content = %i\n", *(*stack_a)->content);
+		ft_printf("pivot: %i\n", pivot);
+		if (*(*stack_a)->content > pivot)
+			pb(stack_a, stack_b);
+		else
+		{
+			ra(stack_a, 0);
+			i++;
+		}
+	}
+	while (*stack_b)
+		pa(stack_a, stack_b);
+	return (i - 1);
+}
+
+void	quicksort(t_list **stack_a, t_list **stack_b, int size)
+{
+	int	pivot;
+
+	if (size <= 1)
+		return ;
+	pivot = partition(stack_a, stack_b, size);
+	quicksort(stack_a, stack_b, pivot);
+	quicksort(&((*stack_a)->next), stack_b, size - pivot - 1);
 }
 
 int	main(int argc, char **argv)
@@ -36,6 +76,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 	t_vars	var;
+	int		size;
 
 	if (argc < 2)
 		return (0);
@@ -44,6 +85,9 @@ int	main(int argc, char **argv)
 	vars_init(&var);
 	var.i = 1;
 	stack_a_init(argv, &a, &var, argc);
+	size = ft_lstsize(a);
+	if (size <= 1)
+		return (0);
 	if (are_already_in_order(a))
 	{
 		clear_stacks(&a, &b);
@@ -53,8 +97,8 @@ int	main(int argc, char **argv)
 		three_or_less(&a);
 	else if (argc <= 6)
 		five_or_less(&a, &b);
-	// else
-	// 	big_stack(&a, &b, var);
+	else
+		quicksort(&a, &b, size);
 	clear_stacks(&a, &b);
 	return (0);
 }
