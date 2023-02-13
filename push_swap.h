@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/13 15:25:17 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:07:45 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	find_highest_numbers(t_list **a, t_list **b);
 void	push_highest_numbers(t_list	**a, t_list **b, int bigpos);
 
 // Over 5 numbers
-void	big_stack(t_list **a, t_list **b, t_vars vars);
-void 	merge_sort(t_list **a, t_list **b, int size);
+void	quicksort(t_list **stack_a, t_list **stack_b, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/13 17:44:03 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:07:08 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,43 +34,6 @@ void	print_stacks(t_list *a, char c)
 	ft_printf("\n");
 }
 
-int	partition(t_list **stack_a, t_list **stack_b, int size)
-{
-	int	pivot;
-	int	i;
-	int	j;
-
-	pivot = *(*stack_a)->next->content;
-	i = 1;
-	j = size - 1;
-	while (i < j && (*stack_a)->next)
-	{
-		ft_printf("a->content = %i\n", *(*stack_a)->content);
-		ft_printf("pivot: %i\n", pivot);
-		if (*(*stack_a)->content > pivot)
-			pb(stack_a, stack_b);
-		else
-		{
-			ra(stack_a, 0);
-			i++;
-		}
-	}
-	while (*stack_b)
-		pa(stack_a, stack_b);
-	return (i - 1);
-}
-
-void	quicksort(t_list **stack_a, t_list **stack_b, int size)
-{
-	int	pivot;
-
-	if (size <= 1)
-		return ;
-	pivot = partition(stack_a, stack_b, size);
-	quicksort(stack_a, stack_b, pivot);
-	quicksort(&((*stack_a)->next), stack_b, size - pivot - 1);
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -83,11 +46,8 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	vars_init(&var);
-	var.i = 1;
 	stack_a_init(argv, &a, &var, argc);
 	size = ft_lstsize(a);
-	if (size <= 1)
-		return (0);
 	if (are_already_in_order(a))
 	{
 		clear_stacks(&a, &b);
