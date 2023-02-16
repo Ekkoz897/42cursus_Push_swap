@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:01:09 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/13 14:07:15 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/15 11:51:47 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ void	find_highest_numbers(t_list **a, t_list **b)
 	int		i;
 
 	bigpos = 0;
-	temp = (*a)->next;
+	temp = (*a);
 	nbr = *(*a)->content;
-	i = 1;
+	i = 0;
 	while (temp->content)
 	{
-		if (!temp->next)
-			break ;
+		i++;
 		if (nbr < *temp->content)
 		{
 			nbr = *temp->content;
 			bigpos = i;
 		}
-		i++;
+		if (!temp->next)
+			break ;
 		temp = temp->next;
 	}
 	push_highest_numbers(a, b, bigpos);

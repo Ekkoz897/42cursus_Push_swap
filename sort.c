@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:51:18 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/13 14:04:26 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:01:10 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,22 @@ void	three_or_less(t_list **a)
 
 void	push_highest_numbers(t_list	**a, t_list **b, int bigpos)
 {
+	if (bigpos == 2)
+		ra(a, 0);
 	if (bigpos == 3)
+	{
+		ra(a, 0);
+		ra(a, 0);
+	}
+	if (bigpos == 4 && (*a)->next->next->next->next)
 	{
 		rra(a, 0);
 		rra(a, 0);
 	}
 	else if (bigpos == 4)
 		rra(a, 0);
-	else
-		while (bigpos-- > 0)
-			ra(a, 0);
+	if (bigpos == 5)
+		rra(a, 0);
 	pb(a, b);
 }
 
@@ -104,3 +110,29 @@ void	quicksort(t_list **stack_a, t_list **stack_b, int size)
 	quicksort(stack_a, stack_b, pivot);
 	quicksort(&((*stack_a)->next), stack_b, size - pivot - 1);
 }
+
+// void	quicksort(t_list **a, t_list **b, int size)
+// {
+// 	if (size <= 1)
+// 		return ;
+// 	while (1)
+// 	{
+// 		if (*(*a)->content > *(*a)->next->content)
+// 			pb(a, b);
+// 		else
+// 			ra(a, 0);
+// 		if (*b && (*b)->next)
+// 		{
+// 			if (*(*b)->content > *(*b)->next->content)
+// 				sb(b, 0);
+// 			else
+// 				rb(a, 0);
+// 		}
+// 		print_stacks(*a, 'a');
+// 		print_stacks(*b, 'b');
+// 		if (are_already_in_order(*a) && !(*b))
+// 			break ;
+// 	}
+// 	print_stacks(*a, 'a');
+// 	print_stacks(*b, 'b');
+// }
