@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/15 12:41:22 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/15 21:55:56 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, char **argv)
 		five_or_less(&a, &b);
 	else
 		quicksort(&a, &b, size);
+	print_stacks(a, 'a');
 	clear_stacks(&a, &b);
 	return (0);
 }
