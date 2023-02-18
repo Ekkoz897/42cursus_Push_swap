@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:26:58 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/15 12:42:32 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:43:01 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rrr(t_list **b, t_list **a)
 {
 	rra(a, 1);
 	rrb(b, 1);
-	ft_printf("rrr");
+	ft_printf("rrr\n");
 }
 
 int	are_already_in_order(t_list *a)

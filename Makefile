@@ -21,8 +21,8 @@ RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = push_swap.c push_utils.c movements/movements.c movements/movements2.c \
-		movements/movements3.c sort.c
+SRC = push_swap.c push_utils.c push_utils2.c movements/movements.c movements/movements2.c \
+		movements/movements3.c sort.c sort_big.c
 
 OBJ = $(SRC: .c = .o)
 

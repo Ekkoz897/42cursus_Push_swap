@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/15 12:41:12 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:31:10 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ typedef struct s_vars
 	int				i;
 	int				*tmp;
 }t_vars;
+
+typedef struct s_moves
+{
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+}t_moves;
 
 int		nbr_is_valid(t_list *a, char *str, int nbr, int index);
 void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc);
@@ -46,6 +56,7 @@ void	vars_init(t_vars *vars);
 void	clear_stacks(t_list **a, t_list **b);
 void	go_back(t_list **a);
 int		are_already_in_order(t_list *a);
+void	moves_reset(t_moves *moves);
 
 // Sorting Functions
 
@@ -57,6 +68,10 @@ void	find_highest_numbers(t_list **a, t_list **b);
 void	push_highest_numbers(t_list	**a, t_list **b, int bigpos);
 
 // Over 5 numbers
-void	quicksort(t_list **stack_a, t_list **stack_b, int size);
+void	sort_big(t_list **a, t_list **b);
+t_list	*biggest(t_list *b);
+int		bigger(t_list *element, t_list *b);
+t_list	*smallest(t_list *b);
+int		smaller(t_list *element, t_list *b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/15 21:55:56 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:41:25 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	print_stacks(t_list *a, char c)
 	while (a->next)
 	{
 		if (c == 'a')
-			ft_printf("a: %i  ", *a->content);
+			ft_printf("a: %i  \n", *a->content);
 		if (c == 'b')
 			ft_printf("b: %i  ", *a->content);
 		a = a->next;
 		i++;
 	}
 	if (c == 'a')
-		ft_printf("a: %i  ", *a->content);
+		ft_printf("a: %i  \n", *a->content);
 	if (c == 'b')
 		ft_printf("b: %i  ", *a->content);
 	ft_printf("\n");
@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 	t_vars	var;
-	int		size;
 
 	if (argc < 2)
 		return (0);
@@ -47,7 +46,6 @@ int	main(int argc, char **argv)
 	b = NULL;
 	vars_init(&var);
 	stack_a_init(argv, &a, &var, argc);
-	size = ft_lstsize(a);
 	if (are_already_in_order(a))
 	{
 		clear_stacks(&a, &b);
@@ -58,7 +56,7 @@ int	main(int argc, char **argv)
 	else if (argc <= 6)
 		five_or_less(&a, &b);
 	else
-		quicksort(&a, &b, size);
+		sort_big(&a, &b);
 	print_stacks(a, 'a');
 	clear_stacks(&a, &b);
 	return (0);
@@ -90,7 +88,7 @@ int	nbr_is_valid(t_list *a, char *str, int nbr, int index)
 	}
 	while (*str)
 	{
-		if (*str < '0' || *str > '9')
+		if ((*str < '0' || *str > '9') && (*str != '-' && *str != '+'))
 		{
 			ft_printf("\nError\nThe %i input isn't valid\n\n", index);
 			return (0);

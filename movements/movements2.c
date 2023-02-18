@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 14:36:52 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/06 16:19:12 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:46:46 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	rb(t_list **b, int flag)
 	(*b)->prev = NULL;
 	ft_lstadd_back(b, temp);
 	if (flag == 0)
-		ft_printf("ra\n");
+		ft_printf("rb\n");
 	go_back(b);
 }
 
@@ -56,9 +56,7 @@ void	rr(t_list **a, t_list **b)
 {
 	ra(a, 1);
 	rb(b, 1);
-	ft_printf("rr");
-	go_back(a);
-	go_back(b);
+	ft_printf("rr\n");
 }
 
 /**
@@ -98,13 +96,21 @@ void	rra(t_list **a, int flag)
 void	rrb(t_list **b, int flag)
 {
 	t_list	*temp;
+	t_list	*temp2;
 
 	if ((*b)->next == NULL)
 		return ;
-	temp = ft_lstlast(*b)->prev;
-	ft_lstadd_front(b, ft_lstlast(*b));
-	temp->next = NULL;
+	temp2 = *b;
+	while (temp2->next->next != NULL)
+	{
+		temp2 = temp2->next;
+	}
+	temp = temp2->next;
+	temp->next = *b;
+	temp->prev = NULL;
+	*b = temp;
+	temp2->next = NULL;
 	if (flag == 0)
-		ft_printf("rra\n");
+		ft_printf("rrb\n");
 	go_back(b);
 }
