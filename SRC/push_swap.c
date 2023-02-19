@@ -6,11 +6,11 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/17 18:41:25 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:45:13 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Function to print stacks ( will delete later)
 void	print_stacks(t_list *a, char c)

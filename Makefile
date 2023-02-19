@@ -1,5 +1,5 @@
 #	3 numbers -> 2 or 3 moves
-#	5 numbers -> <12 moves
+#	5 numbers -> <=12 moves
 #	100 numbers:
 #		<700 moves = 5pts
 #		<900 numbers = 4pts
@@ -21,8 +21,8 @@ RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = push_swap.c push_utils.c push_utils2.c movements/movements.c movements/movements2.c \
-		movements/movements3.c sort.c sort_big.c
+SRC = SRC/push_swap.c SRC/push_utils.c SRC/push_utils2.c SRC/movements.c SRC/movements2.c \
+		SRC/movements3.c SRC/sort.c SRC/sort_big.c SRC/fewer_moves.c SRC/first_element.c
 
 OBJ = $(SRC: .c = .o)
 

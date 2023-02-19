@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 08:48:33 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/17 15:31:10 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:29:57 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,8 @@ t_list	*biggest(t_list *b);
 int		bigger(t_list *element, t_list *b);
 t_list	*smallest(t_list *b);
 int		smaller(t_list *element, t_list *b);
+void	fewer_moves_element(t_list *node,
+			t_list *first, t_moves *moves, int sizea);
+void	first_element(t_list *node, t_list *first, t_moves *moves, int sizea);
 
 #endif

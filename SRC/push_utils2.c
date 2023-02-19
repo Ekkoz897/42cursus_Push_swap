@@ -6,11 +6,11 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:15:28 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/17 18:35:06 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:45:20 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_list	*biggest(t_list *b)
 {

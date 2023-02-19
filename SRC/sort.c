@@ -6,11 +6,11 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:51:18 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/17 13:08:40 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:45:29 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	three_or_less(t_list **a)
 {
