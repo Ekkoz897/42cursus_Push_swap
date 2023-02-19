@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:51:18 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/18 20:45:29 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:41:31 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	three_or_less(t_list **a)
 		ra(a, 0);
 	}
 }
-
 
 void	find_highest_numbers(t_list **a, t_list **b)
 {

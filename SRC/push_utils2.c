@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:15:28 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/18 20:45:20 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:41:45 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	smaller(t_list *element, t_list *b)
 	}
 	return (1);
 }
-
 
 // Resets the "moves" struct
 void	moves_reset(t_moves *moves)

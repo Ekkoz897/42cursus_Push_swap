@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:15:05 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/18 21:17:05 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:41:20 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	fewer_moves2_element(t_moves *local,
 			first = first->next;
 		}
 	}
-
 }
 
 // checks which A element takes fewer movements to place correctly in B
