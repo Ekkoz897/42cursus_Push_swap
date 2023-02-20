@@ -6,33 +6,33 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/18 20:45:13 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:59:05 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 // Function to print stacks ( will delete later)
-void	print_stacks(t_list *a, char c)
-{
-	int	i;
+// void	print_stacks(t_list *a, char c)
+// {
+// 	int	i;
 
-	i = 1;
-	while (a->next)
-	{
-		if (c == 'a')
-			ft_printf("a: %i  \n", *a->content);
-		if (c == 'b')
-			ft_printf("b: %i  ", *a->content);
-		a = a->next;
-		i++;
-	}
-	if (c == 'a')
-		ft_printf("a: %i  \n", *a->content);
-	if (c == 'b')
-		ft_printf("b: %i  ", *a->content);
-	ft_printf("\n");
-}
+// 	i = 1;
+// 	while (a->next)
+// 	{
+// 		if (c == 'a')
+// 			ft_printf("a: %i  \n", *a->content);
+// 		if (c == 'b')
+// 			ft_printf("b: %i  ", *a->content);
+// 		a = a->next;
+// 		i++;
+// 	}
+// 	if (c == 'a')
+// 		ft_printf("a: %i  \n", *a->content);
+// 	if (c == 'b')
+// 		ft_printf("b: %i  ", *a->content);
+// 	ft_printf("\n");
+// }
 
 int	main(int argc, char **argv)
 {
@@ -57,11 +57,12 @@ int	main(int argc, char **argv)
 		five_or_less(&a, &b);
 	else
 		sort_big(&a, &b);
-	print_stacks(a, 'a');
 	clear_stacks(&a, &b);
 	return (0);
 }
 
+// Initializes the A stack using the atoi function to parse the input
+// and store it as ints in the stack_a list.
 void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 {
 	while (var->i < argc)
@@ -78,6 +79,7 @@ void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 	}
 }
 
+// Checks the input norms required by the subject. Ex: check duplicates.
 int	nbr_is_valid(t_list *a, char *str, int nbr, int index)
 {
 	if ((str[0] == '-' && str - "-2147483648" > 0 && ft_strlen(str) >= 11)

@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:18:26 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/18 21:29:47 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:55:15 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ void	first_element3(t_moves *local, int sizea, int sizeb)
 	}
 }
 
+// Split the function due to norminette, too many lines
+// Checks if element is the biggest or the smallest element (in B stack).
+// If it is, it counts how many times we will rotate B to put it's highest
+// number on top. Else it simulates the RB function to calculate how many RB's
+// we need to place element in the right place in B.
 void	first_element2(t_list *node, t_list *first,
 			t_list *last, t_moves *local)
 {
