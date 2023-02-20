@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:09:48 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/18 21:29:31 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:17:13 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,21 @@ void	sort_big2(t_list **a, t_list **b, t_moves *moves)
 void	sort_big(t_list **a, t_list **b)
 {
 	t_moves	moves;
-	t_list	*node;
+	t_list	*element;
 
 	pb(a, b);
 	pb(a, b);
 	while (*a)
 	{
-		node = *a;
+		element = *a;
 		moves.ra = 0;
 		moves_reset(&moves);
-		first_element(node, *b, &moves, ft_lstsize(*a));
-		node = node->next;
-		while (node)
+		first_element(element, *b, &moves, ft_lstsize(*a));
+		element = element->next;
+		while (element)
 		{
-			fewer_moves_element(node, *b, &moves, ft_lstsize(*a));
-			node = node->next;
+			fewer_moves_element(element, *b, &moves, ft_lstsize(*a));
+			element = element->next;
 		}
 		sort_big2(a, b, &moves);
 		while (moves.rrb-- > 0)

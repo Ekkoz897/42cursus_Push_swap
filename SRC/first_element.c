@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:18:26 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/20 10:55:15 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:19:43 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,28 @@ void	first_element3(t_moves *local, int sizea, int sizeb)
 // If it is, it counts how many times we will rotate B to put it's highest
 // number on top. Else it simulates the RB function to calculate how many RB's
 // we need to place element in the right place in B.
-void	first_element2(t_list *node, t_list *first,
+void	first_element2(t_list *element, t_list *b,
 			t_list *last, t_moves *local)
 {
-	if (smaller(node, first) || bigger(node, first))
+	if (smaller(element, b) || bigger(element, b))
 	{
-		while (*first->content != *biggest(first)->content)
+		while (*b->content != *biggest(b)->content)
 		{
 			local->rb++;
-			first = first->next;
+			b = b->next;
 		}
 	}
 	else
 	{
-		while (first && (*node->content < *first->content
-				|| *node->content > *last->content))
+		while (b && (*element->content < *b->content
+				|| *element->content > *last->content))
 		{
 			local->rb++;
 			if (last->next == NULL)
-				last = first;
+				last = b;
 			else
 				last = last->next;
-			first = first->next;
+			b = b->next;
 		}
 	}
 }
@@ -73,18 +73,18 @@ void	first_element2(t_list *node, t_list *first,
 // the smallest element of B. if it is, it RB's unti the biggest/smallest is at 
 // the top of B. If it's neither, it counts the RB's needed to put element in
 // the correct position in the middle of the stack.
-void	first_element(t_list *node, t_list *first, t_moves *moves, int sizea)
+void	first_element(t_list *element, t_list *b, t_moves *moves, int sizea)
 {
 	t_moves	local;
 	t_list	*last;
 	int		sizeb;
 
-	sizeb = ft_lstsize(first);
+	sizeb = ft_lstsize(b);
 	moves->ra = 0;
 	local.ra = 0;
-	last = ft_lstlast(first);
+	last = ft_lstlast(b);
 	moves_reset(&local);
-	first_element2(node, first, last, &local);
+	first_element2(element, b, last, &local);
 	first_element3(&local, sizea, sizeb);
 	moves->ra = local.ra;
 	moves->rb = local.rb;

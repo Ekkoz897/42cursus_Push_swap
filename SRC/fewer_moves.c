@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:15:05 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/20 10:51:09 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:18:38 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,30 +51,30 @@ void	fewer_moves3_element(t_moves *local, t_moves *moves,
 // number on top. Else it simulates the RB function to calculate how many RB's
 // we need to place element in the right place in B.
 void	fewer_moves2_element(t_moves *local,
-	t_list *element, t_list *first)
+	t_list *element, t_list *b)
 {
 	t_list			*last;
 
-	last = ft_lstlast(first);
-	if (smaller(element, first) || bigger(element, first))
+	last = ft_lstlast(b);
+	if (smaller(element, b) || bigger(element, b))
 	{
-		while (*first->content != *biggest(first)->content)
+		while (*b->content != *biggest(b)->content)
 		{
 			local->rb++;
-			first = first->next;
+			b = b->next;
 		}
 	}
 	else
 	{
-		while (first && (*element->content < *first->content
+		while (b && (*element->content < *b->content
 				|| *element->content > *last->content))
 		{
 			local->rb++;
 			if (last->next == NULL)
-				last = first;
+				last = b;
 			else
 				last = last->next;
-			first = first->next;
+			b = b->next;
 		}
 	}
 }
@@ -83,16 +83,16 @@ void	fewer_moves2_element(t_moves *local,
 // Every time it finds a new best number it updates the moves variable.
 // all the if's are for optimization purposes, it checks if it's better,
 // to RA or to RRA, for example.
-void	fewer_moves_element(t_list *element, t_list *first,
+void	fewer_moves_element(t_list *element, t_list *b,
 		t_moves *moves, int sizea)
 {
 	static t_moves	local;
 	int				sizeb;
 
 	local.ra++;
-	sizeb = ft_lstsize(first);
+	sizeb = ft_lstsize(b);
 	moves_reset(&local);
-	fewer_moves2_element(&local, element, first);
+	fewer_moves2_element(&local, element, b);
 	if (local.ra > sizea / 2)
 	{
 		local.rra = sizea - local.ra;
