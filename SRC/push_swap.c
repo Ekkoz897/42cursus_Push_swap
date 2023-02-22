@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:31:13 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 19:45:41 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:48:40 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,10 @@ int	main(int argc, char **argv)
 // and store it as ints in the stack_a list.
 void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 {
-	long	max_int_check;
-
 	while (var->i < argc)
 	{
-		max_int_check = ft_atoi(argv[var->i]);
-		if (max_int_check < -2147483648 || max_int_check > 2147483647)
+		if (ft_atoi(argv[var->i]) < -2147483648
+			|| ft_atoi(argv[var->i]) > 2147483647)
 		{
 			ft_printf("\nError\nThe %i input is invalid\n\n", var->i);
 			exit (0);
