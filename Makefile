@@ -27,7 +27,7 @@ CFLAGS = -Wall -Werror -Wextra
 SRC = SRC/push_swap.c SRC/push_utils.c SRC/push_utils2.c SRC/movements.c SRC/movements2.c \
 		SRC/movements3.c SRC/sort.c SRC/sort_big.c SRC/fewer_moves.c SRC/first_element.c
 
-B_SRC = Bonus_checker/checker.c  Bonus_checker/checker_utils.c Bonus_checker/movements1.c Bonus_checker/movements2.c \
+B_SRC = Bonus_checker/checker.c  Bonus_checker/checker_utils.c Bonus_checker/movements.c Bonus_checker/movements2.c \
 		Bonus_checker/movements3.c Bonus_checker/Get_next_line/get_next_line.c \
 		Bonus_checker/Get_next_line/get_next_line_utils.c \
 

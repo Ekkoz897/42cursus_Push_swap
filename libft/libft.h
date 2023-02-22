@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:41:50 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/03 12:00:18 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:18:50 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ void		ft_putnbr_fd(int n, int fd);
 typedef struct s_list
 {
 	int				*content;
-	int				index;
 	struct s_list	*next;
-	struct s_list	*prev;
 }	t_list;
 /**
  * It creates a new list element.

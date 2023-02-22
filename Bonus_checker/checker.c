@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:03:20 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 12:49:31 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:03:36 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,48 @@
 
 int	replicate2(t_list **a, t_list **b, char *line)
 {
-	if (line[2] != '\n' && line[3] != '\n')
-		return (0);
-	if (line[0] == 'p' && line[1] == 'a')
+	if (!ft_strncmp(line, "pa\n", 3))
 		pa(a, b);
-	else if (line[0] == 'p' && line[1] == 'b')
+	else if (!ft_strncmp(line, "pb\n", 3))
 		pb(a, b);
-	else if (line[0] == 's' && line[1] == 'a')
+	else if (!ft_strncmp(line, "sa\n", 3))
 		sa(a);
-	else if (line[0] == 's' && line[1] == 'b')
+	else if (!ft_strncmp(line, "sb\n", 3))
 		sb(b);
-	else if (line[0] == 'r' && line[1] == 'a')
+	else if (!ft_strncmp(line, "ra\n", 3))
 		ra(a);
-	else if (line[0] == 'r' && line[1] == 'b')
+	else if (!ft_strncmp(line, "rb\n", 3))
 		rb(a);
-	else if (line[0] == 'r' && line[1] == 'r' && line[2] == 'a')
+	else if (!ft_strncmp(line, "rra\n", 4))
 		rra(a);
-	else if (line[0] == 'r' && line[1] == 'r' && line[2] == 'b')
+	else if (!ft_strncmp(line, "rrb\n", 4))
 		rrb(b);
-	else if (line[0] == 'r' && line[1] == 'r' && line[2] == 'r')
+	else if (!ft_strncmp(line, "rrr\n", 4))
 		rrr(a, b);
 	else
 		return (0);
 	return (1);
+}
+
+void	print_stacks(t_list *a, char c)
+{
+	int	i;
+
+	i = 1;
+	while (a->next)
+	{
+		if (c == 'a')
+			ft_printf("a: %i  \n", *a->content);
+		if (c == 'b')
+			ft_printf("b: %i  ", *a->content);
+		a = a->next;
+		i++;
+	}
+	if (c == 'a')
+		ft_printf("a: %i  \n", *a->content);
+	if (c == 'b')
+		ft_printf("b: %i  ", *a->content);
+	ft_printf("\n");
 }
 
 int	replicate(t_list **a, t_list **b)
@@ -47,10 +66,10 @@ int	replicate(t_list **a, t_list **b)
 	while (line)
 	{
 		if (replicate2(a, b, line))
-			write(1, "", 1);
-		else if (line[0] == 'r' && line[1] == 'r')
+			write(1, "", 0);
+		else if (!ft_strncmp(line, "rr\n", 3))
 			rr(a, b);
-		else if (line[0] == 's' && line[1] == 's')
+		else if (!ft_strncmp(line, "ss\n", 3))
 			ss(a, b);
 		else
 		{
@@ -60,6 +79,7 @@ int	replicate(t_list **a, t_list **b)
 		free(line);
 		line = get_next_line(0);
 	}
+	print_stacks(*a, 'a');
 	free(line);
 	return (1);
 }
@@ -78,10 +98,10 @@ int	main(int argc, char **argv)
 	stack_a_init(argv, &a, &var, argc);
 	if (!(replicate(&a, &b)))
 		ft_printf("Error\n");
-	else if (!are_already_in_order(a) && !b)
-		ft_printf("KO\n");
-	else
+	else if ((are_already_in_order(a) && !b))
 		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	clear_stacks(&a, &b);
 	return (0);
 }

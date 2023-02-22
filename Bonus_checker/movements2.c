@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 12:05:25 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/20 13:16:46 by apereira         ###   ########.fr       */
+/*   Created: 2023/02/01 14:36:52 by apereira          #+#    #+#             */
+/*   Updated: 2023/02/22 18:50:30 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,37 @@
 /**
  * It takes a pointer to a pointer to a list, and a flag, and rotates 
  * the list to the right
+ * 
+ * @param a the address of the pointer to the first element of the list
+ * @param flag 0 = print the command, 1 = don't print the command
  */
 void	ra(t_list **a)
 {
 	t_list	*temp;
 
+	if (ft_lstsize(*a) < 2)
+		return ;
 	temp = *a;
 	*a = (*a)->next;
-	(*a)->prev = NULL;
 	ft_lstadd_back(a, temp);
-	go_back(a);
 }
 
 /**
  * It takes a pointer to a pointer to a linked list, and rotates the 
  * list to the right
+ * 
+ * @param b the list to be rotated
+ * @param flag 0 = print, 1 = don't print
  */
 void	rb(t_list **b)
 {
 	t_list	*temp;
 
+	if (ft_lstsize(*b) < 2)
+		return ;
 	temp = *b;
 	*b = (*b)->next;
-	(*b)->prev = NULL;
 	ft_lstadd_back(b, temp);
-	go_back(b);
 }
 
 void	rr(t_list **a, t_list **b)
@@ -50,46 +56,44 @@ void	rr(t_list **a, t_list **b)
 
 /**
  * It takes the last element of the list and adds it to the front of the list
+ * 
+ * @param a the list to be rotated
+ * @param flag 0 if you want to print the command, 1 if you don't
  */
 void	rra(t_list **a)
 {
 	t_list	*temp;
-	t_list	*temp2;
+	t_list	*last;
 
-	if ((*a)->next == NULL)
+	if (ft_lstsize(*a) < 2)
 		return ;
-	temp2 = *a;
-	while (temp2->next->next != NULL)
-	{
-		temp2 = temp2->next;
-	}
-	temp = temp2->next;
-	temp->next = *a;
-	temp->prev = NULL;
-	*a = temp;
-	temp2->next = NULL;
-	go_back(a);
+	temp = *a;
+	while (temp->next->next)
+		temp = temp->next;
+	last = temp->next;
+	last->next = *a;
+	*a = last;
+	temp->next = NULL;
 }
 
 /**
  * It takes the last element of the list and adds it to the front of the list
+ * 
+ * @param b the list to be rotated
+ * @param flag 0 = no print, 1 = print
  */
 void	rrb(t_list **b)
 {
 	t_list	*temp;
-	t_list	*temp2;
+	t_list	*last;
 
-	if ((*b)->next == NULL)
+	if (ft_lstsize(*b) < 2)
 		return ;
-	temp2 = *b;
-	while (temp2->next->next != NULL)
-	{
-		temp2 = temp2->next;
-	}
-	temp = temp2->next;
-	temp->next = *b;
-	temp->prev = NULL;
-	*b = temp;
-	temp2->next = NULL;
-	go_back(b);
+	temp = *b;
+	while (temp->next->next)
+		temp = temp->next;
+	last = temp->next;
+	last->next = *b;
+	*b = last;
+	temp->next = NULL;
 }

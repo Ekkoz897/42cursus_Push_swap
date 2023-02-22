@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:57:30 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 11:37:42 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:19:00 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
-	new->prev = NULL;
 	return (new);
 }

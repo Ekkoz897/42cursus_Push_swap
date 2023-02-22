@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 14:36:52 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 15:58:45 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:21:01 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ra(t_list **a, int flag)
 
 	temp = *a;
 	*a = (*a)->next;
-	(*a)->prev = NULL;
 	ft_lstadd_back(a, temp);
 	if (flag == 0)
 		ft_printf("ra\n");
@@ -44,7 +43,6 @@ void	rb(t_list **b, int flag)
 
 	temp = *b;
 	*b = (*b)->next;
-	(*b)->prev = NULL;
 	ft_lstadd_back(b, temp);
 	if (flag == 0)
 		ft_printf("rb\n");
@@ -77,7 +75,6 @@ void	rra(t_list **a, int flag)
 	}
 	temp = temp2->next;
 	temp->next = *a;
-	temp->prev = NULL;
 	*a = temp;
 	temp2->next = NULL;
 	if (flag == 0)
@@ -104,7 +101,6 @@ void	rrb(t_list **b, int flag)
 	}
 	temp = temp2->next;
 	temp->next = *b;
-	temp->prev = NULL;
 	*b = temp;
 	temp2->next = NULL;
 	if (flag == 0)

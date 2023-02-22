@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:03:28 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 15:58:01 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:20:25 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	sa(t_list **a, int flag)
 		return ;
 	temp = (*a)->next;
 	(*a)->next = temp->next;
-	(*a)->prev = temp;
 	temp->next = *a;
-	temp->prev = NULL;
-	(*a)->next->prev = *a;
 	*a = temp;
 	if (flag == 0)
 		ft_printf("sa\n");
@@ -51,10 +48,7 @@ void	sb(t_list **b, int flag)
 		return ;
 	temp = (*b)->next;
 	(*b)->next = temp->next;
-	(*b)->prev = temp;
 	temp->next = *b;
-	temp->prev = NULL;
-	(*b)->next->prev = *b;
 	*b = temp;
 	if (flag == 0)
 		ft_printf("sb\n");
@@ -76,10 +70,6 @@ void	pa(t_list **a, t_list **b)
 	temp = (*b);
 	*b = temp->next;
 	temp->next = *a;
-	if (*a)
-		(*a)->prev = temp;
-	if (*b)
-		(*b)->prev = NULL;
 	*a = temp;
 	ft_printf("pa\n");
 }
@@ -93,11 +83,6 @@ void	pb(t_list **a, t_list **b)
 	temp = *a;
 	*a = temp->next;
 	temp->next = *b;
-	temp->prev = NULL;
-	if (*b)
-		(*b)->prev = temp;
-	if (*a)
-		(*a)->prev = NULL;
 	*b = temp;
 	ft_printf("pb\n");
 }

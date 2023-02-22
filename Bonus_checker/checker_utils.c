@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:07:12 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/20 12:07:56 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:41:13 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,4 @@ void	clear_stacks(t_list **a, t_list **b)
 		ft_lstclear(a, free);
 	if (*b)
 		ft_lstclear(b, free);
-}
-
-void	go_back(t_list **lst)
-{
-	while ((*lst)->prev)
-	{
-		*lst = (*lst)->prev;
-	}
 }
