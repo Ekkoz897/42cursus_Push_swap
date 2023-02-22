@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:41:50 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 18:18:50 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:44:30 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int			ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);

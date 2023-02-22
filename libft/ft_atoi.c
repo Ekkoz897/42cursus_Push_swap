@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:42:01 by apereira          #+#    #+#             */
-/*   Updated: 2023/01/24 14:52:18 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:44:03 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * res the number as an int.
  */
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	long long	res;
 	int			i;
