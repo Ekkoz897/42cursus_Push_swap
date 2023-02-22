@@ -6,11 +6,32 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:03:20 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 19:03:36 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:26:05 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+void	print_stacks(t_list *a, char c)
+{
+	int	i;
+
+	i = 1;
+	while (a->next)
+	{
+		if (c == 'a')
+			ft_printf("a: %i  ", *a->content);
+		if (c == 'b')
+			ft_printf("b: %i  ", *a->content);
+		a = a->next;
+		i++;
+	}
+	if (c == 'a')
+		ft_printf("a: %i    ", *a->content);
+	if (c == 'b')
+		ft_printf("b: %i  \n", *a->content);
+	ft_printf("\n");
+}
 
 int	replicate2(t_list **a, t_list **b, char *line)
 {
@@ -25,7 +46,7 @@ int	replicate2(t_list **a, t_list **b, char *line)
 	else if (!ft_strncmp(line, "ra\n", 3))
 		ra(a);
 	else if (!ft_strncmp(line, "rb\n", 3))
-		rb(a);
+		rb(b);
 	else if (!ft_strncmp(line, "rra\n", 4))
 		rra(a);
 	else if (!ft_strncmp(line, "rrb\n", 4))
@@ -34,28 +55,11 @@ int	replicate2(t_list **a, t_list **b, char *line)
 		rrr(a, b);
 	else
 		return (0);
+	if (*a)
+		print_stacks(*a, 'a');
+	if (*b)
+		print_stacks(*b, 'b');
 	return (1);
-}
-
-void	print_stacks(t_list *a, char c)
-{
-	int	i;
-
-	i = 1;
-	while (a->next)
-	{
-		if (c == 'a')
-			ft_printf("a: %i  \n", *a->content);
-		if (c == 'b')
-			ft_printf("b: %i  ", *a->content);
-		a = a->next;
-		i++;
-	}
-	if (c == 'a')
-		ft_printf("a: %i  \n", *a->content);
-	if (c == 'b')
-		ft_printf("b: %i  ", *a->content);
-	ft_printf("\n");
 }
 
 int	replicate(t_list **a, t_list **b)
