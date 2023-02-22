@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:00:19 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/20 12:42:16 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:23:36 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
-# include "../Get_next_line/get_next_line.h"
+# include "Get_next_line/get_next_line.h"
 
 typedef struct s_vars
 {

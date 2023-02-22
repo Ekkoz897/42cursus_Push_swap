@@ -1,3 +1,4 @@
+#   Points given depending on number of movements
 #	3 numbers -> 2 or 3 moves
 #	5 numbers -> <=12 moves
 #	100 numbers:
@@ -15,7 +16,9 @@
 
 NAME = push_swap
 
-CC = gcc
+B_NAME = checker
+
+CC = cc
 
 RM = rm -f
 
@@ -24,7 +27,9 @@ CFLAGS = -Wall -Werror -Wextra
 SRC = SRC/push_swap.c SRC/push_utils.c SRC/push_utils2.c SRC/movements.c SRC/movements2.c \
 		SRC/movements3.c SRC/sort.c SRC/sort_big.c SRC/fewer_moves.c SRC/first_element.c
 
-OBJ = $(SRC: .c = .o)
+B_SRC = Bonus_checker/checker.c  Bonus_checker/checker_utils.c Bonus_checker/movements1.c Bonus_checker/movements2.c \
+		Bonus_checker/movements3.c Bonus_checker/Get_next_line/get_next_line.c \
+		Bonus_checker/Get_next_line/get_next_line_utils.c \
 
 all:	$(NAME)
 
@@ -34,21 +39,18 @@ $(NAME): $(SRC)
 	@make -s -C ft_printf
 	@$(CC) $(CFLAGS) $(SRC) libft/libft.a ft_printf/libftprintf.a -o $(NAME)
 
-run: all
-	./push_swap
+bonus: $(B_NAME)
+
+$(B_NAME): $(B_SRC)
+	@make -s -C libft
+	@make -s -C ft_printf
+	$(CC) $(CFLAGS) $(B_SRC) libft/libft.a ft_printf/libftprintf.a -o $(B_NAME)
+
 
 clean:
 	@find . -type f \( -name "*.o" \) -delete
 
 fclean: clean
-	@find . -type f \( -name "*.a" -o -name "push_swap" \) -delete
+	@find . -type f \( -name "*.a" -o -name "push_swap" -o -name "checker" \) -delete
 
 re: fclean all
-
-valgrind:	all
-	valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all ./push_swap 2 1 3 4 5
-
-git:	$(SRC)
-	@git add .
-	@git commit
-	git push

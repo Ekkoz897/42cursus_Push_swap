@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:03:20 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/20 13:19:30 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:49:31 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,10 @@ int	main(int argc, char **argv)
 	b = NULL;
 	vars_init(&var);
 	stack_a_init(argv, &a, &var, argc);
-	if (!(replicate(&a, &b)) || (!are_already_in_order(a) && !b))
-	{
+	if (!(replicate(&a, &b)))
+		ft_printf("Error\n");
+	else if (!are_already_in_order(a) && !b)
 		ft_printf("KO\n");
-		return (0);
-	}
 	else
 		ft_printf("OK\n");
 	clear_stacks(&a, &b);
