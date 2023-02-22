@@ -54,3 +54,8 @@ fclean: clean
 	@find . -type f \( -name "*.a" -o -name "push_swap" -o -name "checker" \) -delete
 
 re: fclean all
+
+git: fclean
+	@git add .
+	@git commit
+	git push
