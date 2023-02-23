@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 12:07:12 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 18:41:13 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:00:28 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 {
 	while (var->i < argc)
 	{
+		if (ft_atoi(argv[var->i]) < -2147483648
+			|| ft_atoi(argv[var->i]) > 2147483647)
+		{
+			ft_printf("\nError\nThe %i input is invalid\n\n", var->i);
+			exit (0);
+		}
 		if (!nbr_is_valid(*a, argv[var->i], ft_atoi(argv[var->i]), var->i))
 		{
 			clear_stacks(a, a);
@@ -31,12 +37,6 @@ void	stack_a_init(char **argv, t_list **a, t_vars *var, int argc)
 // Checks the input norms required by the subject. Ex: check duplicates.
 int	nbr_is_valid(t_list *a, char *str, int nbr, int index)
 {
-	if ((str[0] == '-' && str - "-2147483648" > 0 && ft_strlen(str) >= 11)
-		|| (str - "2147483647" > 0 && ft_strlen(str) >= 10))
-	{
-		ft_printf("\nError\nThe %i input isn't valid\n\n", index);
-		return (0);
-	}
 	while (*str)
 	{
 		if ((*str < '0' || *str > '9') && (*str != '-' && *str != '+'))

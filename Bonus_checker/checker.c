@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:03:20 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/23 11:54:46 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:55:25 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ int	replicate2(t_list **a, t_list **b, char *line)
 		rrr(a, b);
 	else
 		return (0);
-	if (*a)
-		print_stacks(*a, 'a');
-	if (*b)
-		print_stacks(*b, 'b');
 	return (1);
 }
 
