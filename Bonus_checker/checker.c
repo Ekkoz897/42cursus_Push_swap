@@ -6,32 +6,11 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:03:20 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/22 19:26:05 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:54:46 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-void	print_stacks(t_list *a, char c)
-{
-	int	i;
-
-	i = 1;
-	while (a->next)
-	{
-		if (c == 'a')
-			ft_printf("a: %i  ", *a->content);
-		if (c == 'b')
-			ft_printf("b: %i  ", *a->content);
-		a = a->next;
-		i++;
-	}
-	if (c == 'a')
-		ft_printf("a: %i    ", *a->content);
-	if (c == 'b')
-		ft_printf("b: %i  \n", *a->content);
-	ft_printf("\n");
-}
 
 int	replicate2(t_list **a, t_list **b, char *line)
 {
@@ -83,7 +62,6 @@ int	replicate(t_list **a, t_list **b)
 		free(line);
 		line = get_next_line(0);
 	}
-	print_stacks(*a, 'a');
 	free(line);
 	return (1);
 }
