@@ -6,7 +6,7 @@
 /*   By: apereira <apereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:51:18 by apereira          #+#    #+#             */
-/*   Updated: 2023/02/19 18:41:31 by apereira         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:56:40 by apereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	three_or_less(t_list **a)
 {
-	if (*(*a)->content > *(*a)->next->content
+	if (*(*a)->content > *(*a)->next->content && (*a)->next->next
 		&& *(*a)->content < *(*a)->next->next->content)
 		sa(a, 0);
 	if (are_already_in_order(*a))
